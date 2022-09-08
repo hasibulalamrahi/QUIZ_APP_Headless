@@ -1,0 +1,33 @@
+{
+  "name": "quiz_app",
+  "version": "1.0.0",
+  "description": "This Repo Will Contain The Trivia Quiz App Headless API's",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./config/server.js" ,
+    "dev": " nodemon ./config/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hasibulalamrahi/QUIZ_APP_Headless.git"
+  },
+  "keywords": [
+    "quiz_app"
+  ],
+  "author": "Hasibul_Alam_Rahi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hasibulalamrahi/QUIZ_APP_Headless/issues"
+  },
+  "homepage": "https://github.com/hasibulalamrahi/QUIZ_APP_Headless#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "pg": "^8.8.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.21.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
