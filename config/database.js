@@ -12,4 +12,3 @@ module.exports = new Sequelize('Quiz_App', 'postgres', 'bs23', {
   }
 })
 
-// modules.exports = db
