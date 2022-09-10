@@ -11,6 +11,7 @@ const sequelize = new Sequelize("Quiz_App", "postgres", "bs23", {
     idle: 10000,
   },
 });
+sequelize.sync();
 sequelize
   .authenticate()
   .then(() => console.log("Databse Connected Successfully..."))

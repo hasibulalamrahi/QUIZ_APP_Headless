@@ -8,13 +8,21 @@ require("dotenv").config();
 //Importing Database Config
 require("./config/database");
 
+//importing middleware
+require("./controllers/auth/passport");
 //importing middlewares
 const notFound = require("./middlewares/notFound");
 const errorHandler = require("./middlewares/error");
 
+//importing passport auth guard
+
+const passport = require("passport");
+
 //importing Routes
 const subjectsRouter = require("./routes/subjectRoutes");
 const userAdminRoutes = require("./routes/createAdminRoutes");
+const adminSignUp = require("./routes/admin/signUp");
+const adminSignIn = require("./routes/admin/signIn");
 
 const app = express();
 app.use(express.json());
@@ -31,8 +39,14 @@ app.use(morgan("dev"));
 app.use(helmet());
 
 //Routes
-app.use("/api/v1/subjects", subjectsRouter);
+app.use(
+  "/api/v1/subjects",
+  passport.authenticate("jwt", { session: false }),
+  subjectsRouter
+);
 app.use("/api/v1/admins", userAdminRoutes);
+app.use("/api/v1/admin-signup", adminSignUp);
+app.use("/api/v1/admin-signIn", adminSignIn);
 
 //declaring all the middlewares
 app.use(notFound);
